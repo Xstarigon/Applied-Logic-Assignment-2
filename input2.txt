@@ -1,0 +1,42 @@
+;Metehan Topaç 1646370
+;(((’U’, 1, ’V’), 2, ’X’), 5, (’W’, 4, (’Y’, 3, ’Z’)))
+(declare-const U Int)
+(declare-const V Int)
+(declare-const X Int)
+(declare-const W Int)
+(declare-const Y Int)
+(declare-const Z Int)
+(define-const U_len Int 2) ; length of encoding for message ’U’
+(define-const V_len Int 2) ; length of encoding for message ’V’
+(define-const X_len Int 2) ; length of encoding for message ’X’
+(define-const W_len Int 3) ; length of encoding for message ’W’
+(define-const Y_len Int 3) ; length of encoding for message ’Y’
+(define-const Z_len Int 3) ; length of encoding for message ’Z’
+(declare-const avg_code_len Real)
+
+(assert (and
+(> U 0) (> V 0) (> X 0) (> W 0) (> Y 0) (> Z 0)
+
+(= (+ U V X W Y Z) 100)
+
+(< U X) (< U W) (< U Y) (< U Z)
+(< V X) (< V W) (< V Y) (< V Z) 
+
+(< X Y)
+(< X Z)
+
+(< Y (+ X U V))
+(< Z (+ X U V))
+
+(< (+ Y Z) (+ X U V))
+
+(<= W (+ Y Z))
+(<= W (+ X U V))
+
+(= avg_code_len (+ (* U_len U) (* V_len V) (* X_len X) (* W_len W) (* Y_len Y) (* Z_len Z)))
+))
+
+(minimize avg_code_len)
+
+(check-sat)
+(get-model)

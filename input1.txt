@@ -1,0 +1,39 @@
+;Metehan Topaç 1646370
+;(’A’, 4, ((’B’, 2, ’C’), 3, (’D’, 1, ’E’)))
+(declare-const A Int)
+(declare-const B Int)
+(declare-const C Int)
+(declare-const D Int)
+(declare-const E Int)
+(define-const A_len Int 2) ; length of encoding for message ’A’
+(define-const B_len Int 2) ; length of encoding for message ’B’
+(define-const C_len Int 2) ; length of encoding for message ’C’
+(define-const D_len Int 3) ; length of encoding for message ’D’
+(define-const E_len Int 3) ; length of encoding for message ’E’
+(declare-const avg_code_len Real)
+
+(assert (and
+(> A 0) (> B 0) (> C 0) (> D 0) (> E 0)
+
+(= (+ A B C D E) 100)
+
+(< D B)
+(< D C)
+(< D A)
+(< E B)
+(< E C)
+(< E A)
+
+(< C (+ D E))
+(< B (+ D E))
+
+(< A (+ B C))
+(< A (+ D E))
+
+(= avg_code_len (+ (* A_len A) (* B_len B) (* C_len C) (* D_len D) (* E_len E)))
+))
+
+(minimize avg_code_len)
+
+(check-sat)
+(get-model)

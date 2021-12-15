@@ -1,0 +1,25 @@
+sat
+(
+  (define-fun D_len () Int
+    3)
+  (define-fun E () Int    
+    10)
+  (define-fun C () Int    
+    25)
+  (define-fun D () Int    
+    16)
+  (define-fun B_len () Int
+    2)
+  (define-fun B () Int
+    25)
+  (define-fun A_len () Int
+    2)
+  (define-fun E_len () Int
+    3)
+  (define-fun C_len () Int
+    2)
+  (define-fun avg_code_len () Real
+    226.0)
+  (define-fun A () Int
+    24)
+)

@@ -1,0 +1,29 @@
+sat
+(
+  (define-fun W () Int
+    33)
+  (define-fun V_len () Int
+    2)
+  (define-fun Z_len () Int
+    3)
+  (define-fun V () Int
+    12)
+  (define-fun Y () Int
+    16)
+  (define-fun Z () Int
+    17)
+  (define-fun X () Int
+    13)
+  (define-fun W_len () Int
+    3)
+  (define-fun X_len () Int
+    2)
+  (define-fun Y_len () Int
+    3)
+  (define-fun U_len () Int
+    2)
+  (define-fun avg_code_len () Real
+    266.0)
+  (define-fun U () Int
+    9)
+)
